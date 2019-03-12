@@ -1,0 +1,105 @@
+body {background:#ccc;}
+
+$default-color: red;
+$animais: "leão", "Puma", "Pato", "Galinha";
+$social: (
+    facebook: #fff,
+    twitter: #000,
+    github: #ff00ff,
+    instagram: #00ffff,
+    google: #ccc
+);
+
+
+$cont-border: 5px solid #fff;
+$cont-color: #000;
+$container: #{$cont-border} #{$cont-color};
+
+$font-style: italic;
+$font-weight: bold;
+$font-size: 15px;
+$line-height: 15px;
+$font-family: verdana;
+$font: #{$font-style} #{$font-weight} #{$font-size}/#{$line-height} #{$font-family};
+
+$border: 5px solid #fff;
+
+// PLACEHOLDER
+%center { 
+    display:block; 
+    margin:0 auto;
+}
+
+// MIXIN
+@mixin titles($color, $size) {
+    color: $color;
+    font-size: $size;
+}
+
+@mixin large-text {
+  font: {
+    family: Arial;
+    size: 20px;
+    weight: bold;
+  }
+  color: #ff0000;
+}
+
+.title {@include titles(green, 30px)}
+.text {font: $font;}
+a:hover {text-decoration: underline; color:#fff;}
+
+.msg {
+    font: $font;
+    border:1px solid;
+    padding:4px;
+    text-align:center;
+}
+
+.msg-error {
+    @extend .msg;
+    border-color: red;
+    color:red;
+}
+
+nav {
+    width: 80%;
+    @extend %center;
+    background: orange;
+    border:$border;
+    ul {
+        list-style: none;
+        padding: 10px ;
+
+        li {
+            list-style: none; 
+            margin:10px;
+            a {
+                color: $default-color;
+                text-decoration:none;
+                font: $font;
+                //$hover {color:#fff;}
+                @extend a:hover;
+            }
+        }
+    }   
+}
+
+.container {
+    display:flex;
+    justify-content: center;
+    margin: 20px 0 ;
+    .card {
+        width: 250px;
+        padding: 0;
+        text-align: left;
+        font: $font;
+        border:$border;
+    }
+    .card-content {
+        padding: 10px 20px;
+        background:orange;
+    }
+    
+}
+

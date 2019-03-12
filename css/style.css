@@ -1,0 +1,58 @@
+body {
+  background: #ccc; }
+
+nav {
+  display: block;
+  margin: 0 auto; }
+
+.title {
+  color: green;
+  font-size: 30px; }
+
+.text {
+  font: italic bold 15px/15px verdana; }
+
+a:hover, nav ul li a {
+  text-decoration: underline;
+  color: #fff; }
+
+.msg, .msg-error {
+  font: italic bold 15px/15px verdana;
+  border: 1px solid;
+  padding: 4px;
+  text-align: center; }
+
+.msg-error {
+  border-color: red;
+  color: red; }
+
+nav {
+  width: 80%;
+  background: orange;
+  border: 5px solid #fff; }
+  nav ul {
+    list-style: none;
+    padding: 10px; }
+    nav ul li {
+      list-style: none;
+      margin: 10px; }
+      nav ul li a {
+        color: red;
+        text-decoration: none;
+        font: italic bold 15px/15px verdana; }
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0; }
+  .container .card {
+    width: 250px;
+    padding: 0;
+    text-align: left;
+    font: italic bold 15px/15px verdana;
+    border: 5px solid #fff; }
+  .container .card-content {
+    padding: 10px 20px;
+    background: orange; }
+
+/*# sourceMappingURL=style.css.map */
