@@ -1,6 +1,9 @@
-body {background:#ccc;}
+html {
+    font-size:10px; font-family: 'Trebuchet MS';
+}
 
-$default-color: red;
+body {background:#ccc; }
+
 $animais: "leão", "Puma", "Pato", "Galinha";
 $social: (
     facebook: #fff,
@@ -23,43 +26,76 @@ $font-family: verdana;
 $font: #{$font-style} #{$font-weight} #{$font-size}/#{$line-height} #{$font-family};
 
 $border: 5px solid #fff;
+$border-bottom: 1px solid red;
 
-// PLACEHOLDER
+$directions: top, right, bottom, left;
+
+// PLACEHOLDERS
 %center { 
     display:block; 
     margin:0 auto;
 }
 
+%no-padding {
+    padding:0;
+}
+
+%no-margin {
+    margin:0;
+}
+
+@each $direction in $directions {
+    %no-padding-#{$direction} {padding-#{$direction}: 0;}
+    %default-padding-#{$direction} {padding-#{$direction}: 1rem;}
+    %double-padding-#{$direction} {padding-#{$direction}: 2rem;}
+    %no-margin-#{$direction} {margin-#{$direction}: 0;}
+}
+
 // MIXIN
-@mixin titles($color, $size) {
+@mixin titles($color, $size, $border-bottom) {
     color: $color;
     font-size: $size;
+    border-bottom: $border-bottom;
 }
 
-@mixin large-text {
+@mixin default-text {
   font: {
-    family: Arial;
-    size: 20px;
-    weight: bold;
+    family: 'Trebuchet MS';
+    size: 1.3rem;
   }
-  color: #ff0000;
+  color: #333;
 }
 
-.title {@include titles(green, 30px)}
-.text {font: $font;}
+@mixin default-border {
+    border: {
+      style: solid;
+      width: 0.1rem;
+      color: rgb(122, 153, 51);
+      radius: 0.3rem;
+    }
+}
+
+.titles {
+    @include titles(green, 30px, $border-bottom);
+}
+
+.text {
+    @include default-text;
+}
+
 a:hover {text-decoration: underline; color:#fff;}
 
 .msg {
     font: $font;
-    border:1px solid;
-    padding:4px;
-    text-align:center;
+    @include default-border;
+    @extend %no-padding, %double-padding-top;
+    text-align:center; 
 }
 
 .msg-error {
     @extend .msg;
     border-color: red;
-    color:red;
+    color:red; 
 }
 
 nav {
@@ -69,13 +105,12 @@ nav {
     border:$border;
     ul {
         list-style: none;
-        padding: 10px ;
+        @extend %no-padding;
 
         li {
             list-style: none; 
             margin:10px;
             a {
-                color: $default-color;
                 text-decoration:none;
                 font: $font;
                 //$hover {color:#fff;}

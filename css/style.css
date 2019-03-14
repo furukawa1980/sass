@@ -1,3 +1,7 @@
+html {
+  font-size: 10px;
+  font-family: 'Trebuchet MS'; }
+
 body {
   background: #ccc; }
 
@@ -5,12 +9,21 @@ nav {
   display: block;
   margin: 0 auto; }
 
-.title {
+.msg, .msg-error, nav ul {
+  padding: 0; }
+
+.msg, .msg-error {
+  padding-top: 2rem; }
+
+.titles {
   color: green;
-  font-size: 30px; }
+  font-size: 30px;
+  border-bottom: 1px solid red; }
 
 .text {
-  font: italic bold 15px/15px verdana; }
+  font-family: 'Trebuchet MS';
+  font-size: 1.3rem;
+  color: #333; }
 
 a:hover, nav ul li a {
   text-decoration: underline;
@@ -18,8 +31,10 @@ a:hover, nav ul li a {
 
 .msg, .msg-error {
   font: italic bold 15px/15px verdana;
-  border: 1px solid;
-  padding: 4px;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: #7a9933;
+  border-radius: 0.3rem;
   text-align: center; }
 
 .msg-error {
@@ -31,13 +46,11 @@ nav {
   background: orange;
   border: 5px solid #fff; }
   nav ul {
-    list-style: none;
-    padding: 10px; }
+    list-style: none; }
     nav ul li {
       list-style: none;
       margin: 10px; }
       nav ul li a {
-        color: red;
         text-decoration: none;
         font: italic bold 15px/15px verdana; }
 
